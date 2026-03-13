@@ -1,0 +1,16 @@
+{
+  "name": "agent-skills-cli",
+  "version": "1.0.0",
+  "description": "A mini coding agent CLI implementing the open Agent Skills specification",
+  "main": "index.js",
+  "bin": {
+    "agent": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.55.0",
+    "js-yaml": "^4.1.0"
+  }
+}
