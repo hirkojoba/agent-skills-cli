@@ -46,3 +46,12 @@ node index.js "whats my favourite colour?"
 # [no skills matched]
 # ...streamed response...
 ```
+
+## Submission Notes
+
+**Time spent:** 2.5 hours
+
+**Challenges / interesting parts:**
+The most challenging part was figuring out how to make the skill matching actually intelligent rather than just doing simple keyword matching. I needed a way for the agent to look at what the user asked and decide which skills were actually relevant, without loading all of them every time. The solution was making two separate Claude calls, one lightweight call just for matching, and a second one for the actual response with the matched skill instructions injected. Getting that flow right took some thought.
+
+The interesting part was learning about the progressive disclosure pattern from the spec. The idea that you keep the startup context tiny by only loading names and descriptions, then only pull in full skill instructions on demand, is a really clean design. It means you could have 50 skills installed and the agent stays fast and cheap to run because it only ever loads what it actually needs for the task at hand. Seeing it work correctly in practice, where asking something unrelated genuinely loads nothing, was a satisfying moment.
